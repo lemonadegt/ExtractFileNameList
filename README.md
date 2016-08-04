@@ -1,6 +1,8 @@
 # ExtractFileNameList
 for Windows
 
+![ExtractFileNameList Screenshot](http://img1.daumcdn.net/thumb/R1920x0/?fname=http%3A%2F%2Fcfile27.uf.tistory.com%2Fimage%2F225AFD3557A2AB32167BFB)
+
 ## How to use it
 1. 에디트 박스에 파일명 리스트를 얻고자 하는 디렉터리 패스를 입력합니다.
 2. [Get File Name from Directory] 버튼을 클릭하거나 엔터키를 누릅니다.
