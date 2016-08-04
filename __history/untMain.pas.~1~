@@ -1,0 +1,100 @@
+unit untMain;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtDlgs, IOUtils, Printers;
+
+type
+  TForm1 = class(TForm)
+    edtFolderpath: TEdit;
+    btnGetFileName: TButton;
+    lbFileList: TListBox;
+    btnPrintList: TButton;
+    PrintDialog: TPrintDialog;
+    ListBox1: TListBox;
+    btnSaveFile: TButton;
+    procedure btnGetFileNameClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure btnPrintListClick(Sender: TObject);
+    procedure btnSaveFileClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btnGetFileNameClick(Sender: TObject);
+var
+  FolderPath : string;
+begin
+  FolderPath := edtFolderpath.Text;
+
+  for FolderPath in TDirectory.GetFiles(FolderPath) do
+    lbFileList.Items.Add(ExtractFileName(FolderPath))
+end;
+
+procedure TForm1.btnPrintListClick(Sender: TObject);
+var
+  PrinterObj : TPrinter;
+  LoopCounter, HPosition : Integer;
+begin
+  if printDialog.Execute then
+  begin
+    HPosition := 20;
+
+    PrinterObj := Printer;
+    with PrinterObj do
+    begin
+      BeginDoc;
+
+      Canvas.Font.Size   := 10;
+
+      for LoopCounter := 0 to lbFileList.Count - 1 do
+      begin
+        ListBox1.Items.Add(lbFileList.Items.Strings[LoopCounter]);
+
+        //줄 바꾸면서 프린트 하는 부분을 만들어야 함
+        Canvas.TextOut(20, HPosition, lbFileList.Items.Strings[LoopCounter]);
+        Printer.Canvas.MoveTo(20, HPosition + 20);
+        Printer.Canvas.LineTo(20, HPosition + 20);
+      end;
+
+      EndDoc;
+    end;
+  end;
+end;
+
+procedure TForm1.btnSaveFileClick(Sender: TObject);
+var
+  FileNames : TStringlist;
+  LoopCounter : Integer;
+begin
+  FileNames:= TStringlist.create;
+  try
+
+    for LoopCounter := 0 to lbFileList.Count - 1 do
+    begin
+      FileNames.Add(lbFileList.Items.Strings[LoopCounter]);
+    end;
+
+    FileNames.SaveToFile(GetCurrentDir + '\FileList.txt');
+  finally
+    FileNames.Free
+  end;
+end;
+
+procedure TForm1.FormShow(Sender: TObject);
+begin
+  edtFolderpath.Text := '';
+end;
+
+end.

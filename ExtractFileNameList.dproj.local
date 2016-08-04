@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016-08-03 21:03:38.353.pas,C:\Users\User\Documents\RAD Studio\Projects\Unit1.pas=D:\Documents\Dropbox\Source\ExtractFileNameList\untMain.pas</Transaction>
+    <Transaction>2016-08-03 21:03:38.353.dfm,C:\Users\User\Documents\RAD Studio\Projects\Unit1.dfm=D:\Documents\Dropbox\Source\ExtractFileNameList\untMain.dfm</Transaction>
+    <Transaction>2016-08-03 21:03:45.001.dproj,C:\Users\User\Documents\RAD Studio\Projects\Project2.dproj=D:\Documents\Dropbox\Source\ExtractFileNameList\ExtractFileNameList.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

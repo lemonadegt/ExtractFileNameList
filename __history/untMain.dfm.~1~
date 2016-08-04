@@ -1,0 +1,72 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 403
+  ClientWidth = 924
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object edtFolderpath: TEdit
+    Left = 8
+    Top = 8
+    Width = 441
+    Height = 21
+    TabOrder = 0
+    Text = 'edtFolderpath'
+  end
+  object btnGetFileName: TButton
+    Left = 8
+    Top = 35
+    Width = 441
+    Height = 25
+    Caption = 'btnGetFileName'
+    TabOrder = 1
+    OnClick = btnGetFileNameClick
+  end
+  object lbFileList: TListBox
+    Left = 8
+    Top = 66
+    Width = 441
+    Height = 262
+    ItemHeight = 13
+    TabOrder = 2
+  end
+  object btnPrintList: TButton
+    Left = 8
+    Top = 334
+    Width = 441
+    Height = 25
+    Caption = 'btnPrintList'
+    TabOrder = 3
+    OnClick = btnPrintListClick
+  end
+  object ListBox1: TListBox
+    Left = 624
+    Top = 48
+    Width = 281
+    Height = 265
+    ItemHeight = 13
+    TabOrder = 4
+  end
+  object btnSaveFile: TButton
+    Left = 8
+    Top = 365
+    Width = 441
+    Height = 25
+    Caption = 'btnSaveFile'
+    TabOrder = 5
+    OnClick = btnSaveFileClick
+  end
+  object PrintDialog: TPrintDialog
+    Left = 224
+    Top = 200
+  end
+end
